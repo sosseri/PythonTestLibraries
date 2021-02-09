@@ -13,15 +13,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
 import matplotlib.pyplot as plt
-
-#from stop_words import get_stop_words
-#
-#stop_words = get_stop_words('it')
-#stop_words = get_stop_words('italian')
-#
-#from stop_words import safe_get_stop_words
-#
-#stop_words = safe_get_stop_words('unsupported language')
 #%%
 def readFiles(path):
     for root, dirnames, filenames in os.walk(path):
@@ -53,8 +44,12 @@ def dataFrameFromDirectory(path, classification):
 def to_bool(s):
     return 1 if s == 'true' else 0
 
-#data = DataFrame({'message': [], 'class': []})
 
+
+
+
+
+#%% ------------ place here the path of your chat ----------------
 path_to_json = '/Users/alessandroseri/Downloads/Telegram Desktop/ChatExport_2020-11-24/'
 json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.json')]
 print(json_files)
@@ -137,66 +132,6 @@ for actr in range(len(all_actors)):
     # To find the frequency of top 10 words
     fdist1 = fdist.most_common(20)
     all_messages['common'][all_actors[actr]] = fdist1
-#vectorizer = CountVectorizer(ngram_range=(1), min_df=1, analyzer = 'word', stop_words=set(it_stop_words))
-#counts = vectorizer.fit_transform(all_messages['text'])
-#classifier = MultinomialNB()
-#classifier.fit(counts, all_actors)
-#    
-#    mydata_test_counts = vectorizer.transform(mydata_test['text'])
-#    predictions = classifier.predict(mydata_test_counts)
-#    #%%
-#    match = (mydata_test['from']==predictions)
-#    match = np.array(match)
-#    match = match.astype(int)
-#    print(np.mean(match))
-#    if np.mean(match)>highmatch:
-#        highmatch = np.mean(match)
-#        highmatch_indx = ttt
-#    plt.plot(ttt,np.mean(match),'.')
-#print([highmatch, highmatch_indx])
-#
-#if highmatch_indx == 0:
-#    print('The vectorizer is used in default options.')
-#    vectorizer = CountVectorizer()
-#else:
-#    print('The vectorizer is using up to ' + str(highmatch_indx) + ' number of words together.')
-#    vectorizer = CountVectorizer(ngram_range=(1, highmatch_indx), min_df=1, analyzer = 'word', stop_words=set(my_stop_words))
-#
-#counts = vectorizer.fit_transform(mydata_train['text'])
-#classifier = MultinomialNB()
-#targets = mydata_train['from'].values
-#classifier.fit(counts, targets)
-##%%
-#train_indxs = mydata_test.index
-#for aa in range(len(all_actors)):
-#    aa_indx = []
-#    #print('selecting raws from ' + all_actors[aa])
-#    for ii in range(len(mydata_test)):
-#        if mydata_test['from'][train_indxs[ii]] == all_actors[aa]:
-#            aa_indx = aa_indx+[ii]
-#    if len(aa_indx)>1:
-#        aa_indx = np.array(aa_indx)
-#        mydata_test_actors = mydata_test.iloc[aa_indx]
-#        
-#        mydata_test_counts = vectorizer.transform(mydata_test_actors['text'])
-#        predictions = classifier.predict(mydata_test_counts)
-#        match = (mydata_test_actors['from']==predictions)
-#        match = np.array(match)
-#        match = match.astype(int)
-#        print('For ' + str(all_actors[aa]) + ' we have a match of ' + str(np.mean(match)))
-#        
-##%%
-#import nltk
-#import nltk.corpus
-#
-## importing word_tokenize from nltk
-#from nltk.tokenize import word_tokenize
-## Passing the string text into word tokenize for breaking the sentences
-#token = word_tokenize(mydata_train['text'])
-#token
-#
-## Importing Porterstemmer from nltk library
-## Checking for the word ‘giving’ 
-#from nltk.stem import PorterStemmer
-#pst = PorterStemmer()
-#pst.stem('waiting')
+
+    
+    # To be continued
