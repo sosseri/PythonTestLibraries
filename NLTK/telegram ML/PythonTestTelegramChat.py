@@ -49,6 +49,7 @@ def to_bool(s):
     return 1 if s == 'true' else 0
 
 #%%
+# ------------------------- PLACE HERE THE PATH OF YOUR TELEGRAM CHAT --------------------------------
 path_to_json = '/Users/alessandroseri/Downloads/Telegram Desktop/ChatExport_2020-11-24/'
 json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.json')]
 print(json_files)
