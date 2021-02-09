@@ -17,14 +17,6 @@ from sklearn.naive_bayes import MultinomialNB
 
 import matplotlib.pyplot as plt
 
-#from stop_words import get_stop_words
-#
-#stop_words = get_stop_words('it')
-#stop_words = get_stop_words('italian')
-#
-#from stop_words import safe_get_stop_words
-#
-#stop_words = safe_get_stop_words('unsupported language')
 #%%
 def readFiles(path):
     for root, dirnames, filenames in os.walk(path):
@@ -56,8 +48,7 @@ def dataFrameFromDirectory(path, classification):
 def to_bool(s):
     return 1 if s == 'true' else 0
 
-#data = DataFrame({'message': [], 'class': []})
-
+#%%
 path_to_json = '/Users/alessandroseri/Downloads/Telegram Desktop/ChatExport_2020-11-24/'
 json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.json')]
 print(json_files)
